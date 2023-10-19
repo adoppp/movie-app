@@ -1,0 +1,1 @@
+export const filmSelector = state => state.filmsReducer.items;

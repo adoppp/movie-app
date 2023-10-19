@@ -1,9 +1,10 @@
-import { Suspense } from "react";
+import { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import { Header } from "components/global/Header";
-import { Trending } from "components/Trending";
 
+const Home = lazy(() => import('../pages/Home/Home'))
+  
 export const App = () => {
   return (
     <div>
@@ -11,7 +12,7 @@ export const App = () => {
       <main>
         <Suspense fallback={<div>Loading...</div>} >
           <Routes >
-            <Route path="/" element={<Trending />} />
+            <Route path="/" element={<Home />} />
             <Route path="/search" element={<div>2</div>} />
             {/* <Route path="movies/:moviesId" element={<MovieCard />}>
               <Route path='cast' element={<Credits />} />

@@ -2,6 +2,9 @@ import styled from 'styled-components';
 import { NavLink } from "react-router-dom";
 
 export const Link = styled(NavLink)`
+    transition-property: background-color, color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
     ::after {
         content: '';
@@ -17,6 +20,9 @@ export const Link = styled(NavLink)`
 
     &.active {
         color: #80B3FF;
+        transition-property: background-color, color;
+        transition-duration: 250ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
         :after {
             width: 100%;

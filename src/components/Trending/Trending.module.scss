@@ -9,4 +9,37 @@
 
     border-radius: 10px;
     border: 2px solid $sky-blue-default;
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 40px;
+    }
+
+    &__list-item {
+        background-color: $sky-blue-light;
+
+        max-width: fit-content;
+
+        border-radius: 10px;
+    }
+
+    &__list-item a {
+        display: block;
+    }
+
+    &__list-item h2 {
+        text-align: center;
+
+        max-width: 280px;
+
+        margin: 16px auto 0 auto;
+        padding-bottom: 24px;
+    }
+
+    &__list-item img {
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+    }
 }
