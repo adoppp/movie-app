@@ -23,7 +23,9 @@ const Trending = () => {
         <li key={film.id} className={cn('container__list-item')}>
             <Link to={`/search/${film.id}`} state={{ from: location }} >
                 <img src={`https://image.tmdb.org/t/p/w300${film.poster_path}`} alt={film.title} />
-                <h2>{film.title}</h2>
+                <div className={cn('background')}>
+                    <h2>{film.title}</h2>
+                </div>
             </Link>
         </li>
     )
