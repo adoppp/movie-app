@@ -15,4 +15,16 @@ export const getTrendingMovies = createAsyncThunk(
             return thunkAPI.rejectWithValue(error.message);
         }
     }
-)
+);
+
+export const getByQuery = createAsyncThunk(
+    'films/Query',
+    async (query, thunkAPI) => {
+        try {
+            const response = await axios.get(`/search/movie?api_key=${KEY}&query=${query}`);
+            return response.data.results;
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error.message);
+        }
+    }
+);

@@ -1,0 +1,41 @@
+@import '../../scss/colors';
+
+.form {
+    display: flex;
+
+    max-width: 720px;
+
+    margin: 0 auto;
+    margin-bottom: 40px;
+
+    & input {
+        color: $sky-white;
+        font-size: 18px;
+        font-weight: 500;
+
+        background-color: transparent;
+
+        width: 100%;
+
+        margin-right: 12px;
+
+        padding: 12px 0 12px 32px;
+
+        border: 2px solid $sky-blue-default;
+        border-radius: 20px;
+
+        outline: none;
+
+        transition-property: padding;
+        transition-duration: 400ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    & input::placeholder {
+        color: #eeeeee9c;
+    }
+
+    & input:focus {
+        padding-left: 16px;
+    }
+}

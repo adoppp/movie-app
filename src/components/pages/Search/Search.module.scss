@@ -1,0 +1,10 @@
+@import '../../../scss/colors';
+@import '../../../scss/mixins';
+
+.container {
+    @include containerBlue;
+}
+
+.section {
+    padding: 0 16px;
+}

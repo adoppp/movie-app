@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { getTrendingMovies } from "redux/operations/filmsThunk";
+import { getByQuery, getTrendingMovies } from "redux/operations/filmsThunk";
 
 const initialState = {
-    isLoading: false,
-    error: null,
-    items: [],
+  isLoading: false,
+  error: null,
+  items: [],
+  query: [],
 };
 
 const PENDING = (state) => {
@@ -29,6 +30,13 @@ const filmsSlice = createSlice({
             state.items = action.payload;
         })
         .addCase(getTrendingMovies.rejected, REJECTED)
+        .addCase(getByQuery.pending, PENDING)
+        .addCase(getByQuery.fulfilled, (state, action) => {
+          state.isLoading = false;
+          state.error = null;
+          state.query = action.payload;
+        })
+      .addCase(getByQuery.rejected, REJECTED)
     }
 });
 
