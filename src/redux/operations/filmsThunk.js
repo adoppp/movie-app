@@ -28,3 +28,27 @@ export const getByQuery = createAsyncThunk(
         }
     }
 );
+
+export const getMovieDetails = createAsyncThunk(
+    'films/Details',
+    async (id, thunkAPI) => {
+        try {
+            const response = await axios.get(`/movie/${id}?api_key=${KEY}`);
+            return response.data;
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error.message);
+        }
+    }
+);
+
+export const getMovieActors = createAsyncThunk(
+    'films/Actors',
+    async (id, thunkAPI) => {
+        try {
+            const response = await axios.get(`/movie/${id}/credits?api_key=${KEY}`);
+            return response.data.cast;
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error.message);
+        }
+    }
+);

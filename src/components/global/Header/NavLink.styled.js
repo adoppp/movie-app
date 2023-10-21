@@ -13,13 +13,13 @@ export const Link = styled(NavLink)`
         bottom: -5px;
         width: 0;
         height: 1.5px;
-        background-color: #80B3FF;
+        background-color: #AF0404;
         transition: width 0.35s;
         z-index: 5;
     }
 
     &.active {
-        color: #80B3FF;
+        color: #AF0404;
         transition-property: background-color, color;
         transition-duration: 250ms;
         transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -30,11 +30,11 @@ export const Link = styled(NavLink)`
         }
 
         :hover {
-            color: #98E4FF;
+            color: #FF0000;
         }
 
         :hover:after {
-            background-color: #98E4FF;
+            background-color: #FF0000;
         }
     }
 `;

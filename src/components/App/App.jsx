@@ -2,24 +2,27 @@ import { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import { Header } from "components/global/Header";
+import { Loader } from "components/Loader";
 
 const Home = lazy(() => import('../pages/Home/Home'))
 const Search = lazy(() => import('../pages/Search/Search'))
+const Movie = lazy(() => import('../pages/Movie/Movie'))
+const Actors = lazy(() => import('../pages/Actors/Actors'))
 
 export const App = () => {
   return (
     <div>
       <Header />
       <main>
-        <Suspense fallback={<div>Loading...</div>} >
+        <Suspense fallback={<Loader />} >
           <Routes >
             <Route path="/" element={<Home />} />
             <Route path="/search" element={<Search />} />
-            {/* <Route path="movies/:moviesId" element={<MovieCard />}>
-              <Route path='cast' element={<Credits />} />
-              <Route path='reviews' element={<Reviews /> } />
+            <Route path="search/:id" element={<Movie />}>
+              <Route path='actors' element={<Actors />} />
+              {/* <Route path='reviews' element={<Reviews /> } /> */}
             </Route>
-            <Route path="*" element={<NotFound />} /> */}
+            {/* <Route path="*" element={<NotFound />} />  */}
           </Routes>
         </Suspense>
       </main>

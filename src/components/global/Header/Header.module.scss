@@ -28,7 +28,11 @@
     }
 
     &__list li a {
-        color: $sky-blue-dark;
+        color: $sky-blue-light;
+
+        transition-property: color;
+        transition-duration: 250ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
         ::before {
             content: '';
@@ -37,7 +41,7 @@
             bottom: -5px;
             width: 0;
             height: 1.5px;
-            background-color: $sky-blue-dark;
+            background-color: $sky-blue-light;
             transition: width 0.35s;
         }
 

@@ -1,0 +1,72 @@
+@import '../../scss/colors';
+
+.details {
+    color: $sky-white;
+
+    & h2 {
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    & .description {
+        max-width: 520px;
+    }
+
+    & li {
+        margin-bottom: 16px;
+    }
+
+    & li:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.poster {
+    margin-bottom: 40px;
+}
+
+.back_link {
+    font-size: 20px;
+    font-weight: 500;
+    color: $sky-blue-dark;
+
+    display: inline-block;
+    position: relative;
+
+    margin-bottom: 32px;
+
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.container a {
+    ::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        width: 0;
+        height: 1.5px;
+        background-color: $sky-blue-light;
+        transition: width 0.35s;
+    }
+    
+    :hover::after {
+        width: 100%;
+        background-color: $sky-blue-dark;
+    }
+
+    :active::after {
+        width: 100%;
+        background-color: $sky-blue-default;
+    }
+
+    :hover {
+        color: $sky-blue-default;
+    }
+
+    :active {
+        color: $sky-blue-default;
+    }
+}
