@@ -2,4 +2,5 @@
 -svg;
 -background;
 -error;
--loader.
+-loader;
+-notify.
