@@ -27,7 +27,7 @@ const Actors = () => {
 
     useEffect(() => {
         dispatch(getMovieActors(id))
-    }, [])
+    }, [dispatch, id])
 
     return (
         <div>
