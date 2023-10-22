@@ -10,20 +10,24 @@ const Actors = () => {
     const actors = useSelector(actorsSelector);
     const { id } = useParams();
 
-    useEffect(() => {
-        dispatch(getMovieActors(id))
-    }, [dispatch, id])
-
-    const item = actors.map(actor => (
-        <li key={actor.cast_id}>
+    const item = actors.map(({ profile_path, name, character, cast_id }) => (
+        <li key={cast_id}>
             <img
-                src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`} 
-                alt={`${actor.name}`} 
+                src={
+                    profile_path ?
+                    `https://image.tmdb.org/t/p/w200${profile_path}` :
+                    null
+                } 
+                alt={`${name}`} 
             />
-            <h2>{actor.name}</h2>
-            <p>{actor.character}</p>
+            <h2>{name}</h2>
+            <p>{character}</p>
         </li>
     ))
+
+    useEffect(() => {
+        dispatch(getMovieActors(id))
+    }, [])
 
     return (
         <div>
