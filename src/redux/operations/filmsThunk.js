@@ -52,3 +52,15 @@ export const getMovieActors = createAsyncThunk(
         }
     }
 );
+
+export const getMovieReviews = createAsyncThunk(
+    'films/Reviews',
+    async (id, thunkAPI) => {
+        try {
+            const response = await axios.get(`/movie/${id}/reviews?api_key=${KEY}`);
+            return response.data.results;
+        } catch (error) {
+            return thunkAPI.rejectWithValue(error.message);
+        }
+    }
+)

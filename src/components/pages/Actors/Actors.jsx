@@ -1,40 +1,33 @@
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
-import { getMovieActors } from "redux/operations/filmsThunk";
 import { useSelector } from "react-redux";
 import { actorsSelector } from "redux/selectors/selectors";
+import styles from './Actors.module.scss';
+import classNames from "classnames/bind";
+import img from '../../../public/Group 1.jpg'
+
+const cn = classNames.bind(styles);
 
 const Actors = () => {
-    const dispatch = useDispatch();
     const actors = useSelector(actorsSelector);
-    const { id } = useParams();
 
     const item = actors.map(({ profile_path, name, character, cast_id }) => (
-        <li key={cast_id}>
+        <li key={cast_id} className={cn('item')}>
             <img
                 src={
                     profile_path ?
                     `https://image.tmdb.org/t/p/w200${profile_path}` :
-                    null
+                    img
                 } 
-                alt={`${name}`} 
+                alt={name} 
             />
             <h2>{name}</h2>
             <p>{character}</p>
         </li>
     ))
 
-    useEffect(() => {
-        dispatch(getMovieActors(id))
-    }, [dispatch, id])
-
     return (
-        <div>
-            <ul>
-                {item}
-            </ul>
-        </div>
+        <ul className={cn('list')}>
+            {item}
+        </ul>
     )
 }
 

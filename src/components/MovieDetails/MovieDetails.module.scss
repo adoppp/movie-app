@@ -23,6 +23,7 @@
 
 .poster {
     margin-bottom: 40px;
+    margin-right: 32px;
 }
 
 .back_link {
@@ -38,6 +39,12 @@
     transition-property: color;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .container a {
