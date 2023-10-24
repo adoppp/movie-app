@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux"
-import { actorsSelector, detailsSelector, reviewsSelector } from "redux/selectors/selectors"
+import { detailsSelector } from "redux/selectors/selectors"
 import classNames from "classnames/bind"
 
 import styles from './MovieDetails.module.scss'
@@ -11,24 +11,25 @@ const cn = classNames.bind(styles)
 
 const MovieDetails = () => {
     const details = useSelector(detailsSelector)
-    const actors = useSelector(actorsSelector);
-    const reviews = useSelector(reviewsSelector);
-    const dispatch = useDispatch();
+    // const actors = useSelector(actorsSelector);
+    // const dispatch = useDispatch();
     const location = useLocation();
     const backLinkRef = useRef(location.state?.from ?? '/')
 
-    const handleClear = () => {
-        if (actors) {
-            dispatch(deleteActors())
-        } 
-        
-        dispatch(deleteReviews())
-    }
+    // const handleClear = () => {
+    //     if (actors) {
+    //         dispatch(deleteActors())
+    //     } 
+
+    //     dispatch(deleteReviews())
+    // }
 
     return (
         <div className={cn('container')}>
             <div>
-                <Link to={backLinkRef.current} onClick={handleClear}>
+                <Link to={backLinkRef.current}
+                    // onClick={handleClear}
+                >
                     <span className={cn('back_link')}>Back</span>
                 </Link>
                 <div className={cn('poster')}>

@@ -26,23 +26,9 @@ const MovieCard = () => {
 
     useEffect(() => {
         dispatch(getMovieDetails(id))
-    }, [dispatch, id])
-
-    const handleActors = (event) => {
-        event.preventDefault()
-        if (reviews) {
-            dispatch(deleteReviews())
-        }
-        dispatch(getMovieActors(id))
-    }
-
-    const handleReviews = (event) => {
-        event.preventDefault()
-        if (actors) {
-            dispatch(deleteActors())
-        }
         dispatch(getMovieReviews(id))
-    }
+        dispatch(getMovieActors(id))
+    }, [dispatch, id])
 
     return (
         <div className={cn('container__card')}>
@@ -50,18 +36,6 @@ const MovieCard = () => {
             <div>
             <MovieDetails />
                 <div>
-                    <ul>
-                        <li>
-                            <button onClick={handleActors}>
-                                Actors
-                            </button>
-                        </li>
-                        <li>
-                            <button onClick={handleReviews} >
-                                Reviews
-                            </button>
-                        </li>
-                    </ul> 
                         {actors && <Actors />}
                         {reviews && <Reviews />}
                 </div>
