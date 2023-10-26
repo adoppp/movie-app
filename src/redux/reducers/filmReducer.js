@@ -25,12 +25,9 @@ const filmsSlice = createSlice({
   name: 'films',
   initialState,
   reducers: {
-    deleteActors(state) {
-      state.actors = [];
+    deleteQuery(state) {
+      state.query = [];
     },
-    deleteReviews(state) {
-      state.reviews = [];
-    }
   },
   extraReducers: (builder) => {
     builder
@@ -72,6 +69,6 @@ const filmsSlice = createSlice({
   }
 });
 
-export const { deleteActors, deleteReviews } = filmsSlice.actions;
+export const { deleteQuery } = filmsSlice.actions;
 
 export const filmsReducer = filmsSlice.reducer;

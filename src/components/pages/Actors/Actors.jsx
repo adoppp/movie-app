@@ -25,9 +25,12 @@ const Actors = () => {
     ))
 
     return (
-        <ul className={cn('list')}>
-            {item}
-        </ul>
+        <>
+            <h2 className={cn('title')}>Actors</h2>
+            <ul className={cn('list')}>
+                {item}
+            </ul>
+        </>
     )
 }
 
